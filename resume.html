@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David's Curriculum Vitae</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1F2022;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 1.25em;
+        }
+
+        hr {
+            height: 2px;
+            margin: 0 40px;
+            background-color: #A09EA0;
+            border: none;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: white;
+            padding: 5px;
+        }
+
+        p a {
+            color: gray;
+        }
+
+        a:hover {
+            color: gray;
+        }
+
+        #container {
+            width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+        }
+
+        #intro {
+            background-color: #424242;
+            padding: 10px;
+            float: left;
+            width: 300px;
+            color: white;
+        }
+
+        #profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #about {
+            padding: 20px 40px;
+        }
+
+        #links {
+            padding: 20px 40px;
+        }
+
+        #more {
+            background-color: white;
+            padding: 10px;
+            width: 900px;
+            color: #424242;
+        }
+
+        #information {
+            padding: 60px 20px 0px;
+            display: flex;
+        }
+
+        #title-name {
+            color: #424242;
+            width: 60%;
+            padding-bottom: 20px;
+        }
+
+        #name {
+            font-size: 35px;
+        }
+
+        #title {
+            padding-top: 10px;
+            font-size: 15px;
+        }
+
+        .skills {
+            padding: 0 20px 0px;
+        }
+
+        .skills .bar {
+            margin: 20px 0;
+        }
+
+        .skills .bar:first-child {
+            margin-top: 0;
+        }
+
+        .skills .bar .info {
+            margin-bottom: 5px;
+        }
+
+        .skills .bar .info span {
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .skills .bar .progress-line {
+            position: relative;
+            height: 10px;
+            width: 100%;
+            background: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.05),
+                0px 1px rgba(255, 255, 255, 0, 8);
+        }
+
+        .bar .progress-line span {
+            height: 100%;
+            width: 80%;
+            background: #65656D;
+            position: absolute;
+            border-radius: 10px;
+        }
+
+        .bar .progress-line span::before {
+            position: absolute;
+            content: "";
+            height: 0;
+            top: -10px;
+            right: 0;
+            width: 0;
+            border: 7px solid transparent;
+            border-bottom-width: 0px;
+            border-right-width: 0px;
+            border-top-color: #000;
+        }
+
+        .bar .progress-line span::after {
+            position: absolute;
+            content: "80%";
+            top: -27px;
+            right: 0;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            background: #000;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+
+        .progress-line.html span::after {
+            content: "55%";
+        }
+
+
+        .progress-line.css span::after {
+            content: "30%";
+        }
+
+
+        .progress-line.java span::after {
+            content: "60%";
+        }
+
+
+        .progress-line.cs span::after {
+            content: "90%";
+        }
+
+
+        .progress-line.mysql span {
+            width: 70%;
+        }
+
+        .progress-line.html span {
+            width: 55%;
+        }
+
+
+        .progress-line.css span {
+            width: 30%;
+        }
+
+
+        .progress-line.java span {
+            width: 60%;
+        }
+
+
+        .progress-line.cs span {
+            width: 90%;
+        }
+
+
+        .progress-line.mysql span {
+            width: 70%;
+        }
+
+        #education {
+            padding: 0 20px 0px;
+        }
+
+        .school-name {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .school-location {
+            color: #65656D;
+        }
+
+        .school-duration {
+            color: #65656D;
+        }
+
+        /* 
+            Maam hindi ko po alam nangyayari dito cinopy kolang po ito 
+            https://stackoverflow.com/questions/17629286/css-vertical-line-between-bullets-in-an-unordered-list
+        */
+        ul.schools li {
+            position: relative;
+            /* so that pseudoelements are positioned relatively to their "li"s*/
+            /* use padding-bottom instead of margin-bottom.*/
+            margin-bottom: 0;
+            /* This overrides previously specified margin-bottom */
+            padding-bottom: 2.5em;
+            list-style: none;
+        }
+
+        ul.schools li:after {
+            /* bullets */
+            content: url('http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/RedDisc.svg/20px-RedDisc.svg.png');
+            position: absolute;
+            left: -26px;
+            /*adjust manually*/
+            top: 0px;
+        }
+
+        ul.schools li:before {
+            /* lines */
+            content: "";
+            position: absolute;
+            left: -16px;
+            /* adjust manually */
+            border-left: 1px solid black;
+            height: 100%;
+            width: 1px;
+        }
+
+        ul.schools li:first-child:before {
+            /* first li's line */
+            top: 6px;
+            /* moves the line down so that it disappears under the bullet. Adjust manually */
+        }
+
+        ul.schools li:last-child:before {
+            /* last li's line */
+            height: 6px;
+            /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+        }
+
+        /* Hanggang dito po yung cinopy ko po maam */
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="intro">
+            <img src="https://bn1303files.storage.live.com/y4mlNOQwhSqFbrib70zdBP28LXEeREN7dh0QBTnpG_BdkGR-_Afn7kF77TfEB1YjXFE6lZERNQz2wFK6mtiDuwja8cnKkHyBRvvBhxKTP-MPY-zUNSDUWPsa564WEir-eQapEtAm-Q7LvdIwGHGbgG32aZifnXsNGWvSCr3d7vT8M7E2uUAFq3qlARzEmGMAZqX?width=720&height=728&cropmode=none"
+                alt="profile" id="profile-picture">
+            <div id="about">
+                <h2>ABOUT ME</h2>
+                <p>David King Roderos is an 18 years old 1st-year college student from Quezon City. He loves playing
+                    games and having time with friends and loves his family. He became a student of New Era University
+                    in 2019. He is a member of the Church of Christ. He chose BS Computer Science to improve his
+                    programming skills and also to earn a Bachelor’s Degree.</p>
+            </div>
+            <hr>
+            <div id="links">
+                <h2>SOCIAL LINKS</h2>
+                <div id="website">
+                    <a href="https://www.facebook.com/profile.php?id=100009099215160" class="fa fa-facebook"
+                        target="_blank"></a>
+                    <a href="https://github.com/DavidKingRoderos" class="fa fa-github" target="_blank"></a>
+                    <a href="https://www.youtube.com/channel/UCrodImGLAMWSl-KFQ3Rsjlw" class="fa fa-youtube"
+                        target="_blank"></a>
+
+                </div>
+            </div>
+        </div>
+        <div id="more">
+            <div id="information">
+                <div id="title-name">
+                    <div id="name">DAVID KING ROEROS</div>
+                    <div <div id="title">
+                        STUDENT
+                    </div>
+                </div>
+                <div id="contact">
+                    <p><a class="fa fa-location-arrow"></a>P111 Smile Citihomes Novaliches Q.C.</p>
+                    <p><a class="fa fa-mobile-phone"></a>09616039337</p>
+                </div>
+            </div>
+            <hr>
+            <div class="skills">
+                <h2>SKILLS</h2>
+                <div class="bar">
+                    <div class="info">
+                        <span>HTML</span>
+                    </div>
+                    <div class="progress-line html"><span></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <span>CSS</span>
+                    </div>
+                    <div class="progress-line css"><span></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <span>Java</span>
+                    </div>
+                    <div class="progress-line java"><span></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <span>C#</span>
+                    </div>
+                    <div class="progress-line cs"><span></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <span>MySQL</span>
+                    </div>
+                    <div class="progress-line mysql"><span></span></div>
+                </div>
+            </div>
+            <hr>
+            <div id="education">
+                <h2>EDUCATION</h2>
+                <ul class="schools">
+                    <li class="school">
+                        <div class="school-name">New Era University</div>
+                        <div class="school-location">Manila, Philippines</div>
+                        <div class="school-duration">2019 - Present</div>
+                    </li>
+                    <li class="school">
+                        <div class="school-name">Sta. Elena School of Novaliches</div>
+                        <div class="school-location">Manila, Philippines</div>
+                        <div class="school-duration">2010 - 2019</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
